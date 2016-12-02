@@ -1,0 +1,21 @@
+version: '2'
+services:
+  server:
+    environment:
+      - 'POSTGRES_HOST=postgres'
+      - 'POSTGRES_PORT=5432'
+      - 'PORT=3000'
+    image: 'database'
+    build: 
+      context: '.'
+      dockerfile: 'Dockerfile'
+    ports:
+      - '5432:5432'
+    links:
+      - 'db'
+  postgres:
+    environment:
+      - 'POSTGRES_PASSWORD=mysecretpassword'
+
+    ports:
+      - "6379:6379'

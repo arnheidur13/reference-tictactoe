@@ -16,18 +16,18 @@ fi
 #$GIT_COMMIT
 #_EOF_
 
-#cp ./Dockerfile ./build/
+cp ./Dockerfile ./build/
 
 
-#cd dist
-#echo "Building docker image" 
+cd dist
+echo "Building docker image" 
 
-#docker build -t arnheidur13/tictactoe
+docker build -t arnheidur13/tictactoe .
 
-#rc=$?
-#if [[ $rc != 0 ]] ; then
-#   echo "Docker build failed" $rc
-#   exit $rc
-#fi
+rc=$?
+if [[ $rc != 0 ]] ; then
+   echo "Docker build failed" $rc
+   exit $rc
+fi
 
 echo "Done"
