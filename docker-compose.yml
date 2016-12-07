@@ -4,18 +4,19 @@ services:
     environment:
       - 'POSTGRES_HOST=postgres'
       - 'POSTGRES_PORT=5432'
-      - 'PORT=3000'
-    image: 'database'
-    build: 
+    image: 'arnheidur/tictactoe'
+    build:
       context: '.'
       dockerfile: 'Dockerfile'
     ports:
-      - '5432:5432'
+      - '3000:3000'
+    depends_on:
+      - 'postgres' # postgres needs to be up and running
     links:
-      - 'db'
-  postgres:
+      - 'postgres' # connect server to postgres
+  postgres:        # database
     environment:
       - 'POSTGRES_PASSWORD=mysecretpassword'
-
+    image: 'postgres'
     ports:
-      - "6379:6379'
+      - '5432:5432'
