@@ -3,4 +3,5 @@
 /public
 /build
 /.idea/
-todo.md
+todo.mdnode_modules
+npm-debug.log
