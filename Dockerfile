@@ -4,6 +4,7 @@
 
 # From what image we want to build from
 FROM node
+
 # File Author / Maintainer
 MAINTAINER "arnheidur13"
 
@@ -35,5 +36,6 @@ ENV NODE_PATH .
 CMD ["./runMigrate.sh"]
 
 #############################################
-# Created .dockerignore file to ignore 
-# node_modules and npm-log files
+# Having issues with running fix script,
+# created runMigrate.sh with same implementation
+# and encountered another error (hopefully fixed)

@@ -2,6 +2,7 @@
   "name": "an-outlandish-mean-app",
   "version": "1.0.0",
   "description": "Base for a simple nodejs server",
+  "author": "Arnheiður Aldís Sigurðardóttir <arnheidur13@ru.is>",
   "private": true,
   "main": "run.js",
   "dependencies": {

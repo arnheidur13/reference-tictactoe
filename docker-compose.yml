@@ -2,17 +2,17 @@ version: '2'
 services:
   server:
     environment:
-      - 'NODE_ENV=production'
-      - 'POSTGRES_HOST=postgres'
+      - 'NODE_ENV=production'      # added to run in production environment
+      - 'POSTGRES_HOST=postgres'   # for postgres and app running together
       - 'POSTGRES_PORT=5432'
       - 'PORT=3000'
-    image: 'arnheidur/tictactoe:${GIT_COMMIT}'
+    image: 'arnheidur/tictactoe:${GIT_COMMIT}'   # image created by Dockerfile+githash
     ports:
       - '3000:3000'
     depends_on:
       - 'postgres' # postgres needs to be up and running
     links:
-      - 'postgres' # connect server to postgres
+      - 'postgres' # links server to postgres
   postgres:        # database
     environment:
       - 'POSTGRES_PASSWORD=mysecretpassword'

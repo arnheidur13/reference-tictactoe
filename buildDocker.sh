@@ -4,7 +4,7 @@
 echo "Cleaning..."
 rm -rf ./build
 
-
+# Retrieve githash of new commit
 if [ -z "$GIT_COMMIT" ]; then
   export GIT_COMMIT=$(git rev-parse HEAD)
   export GIT_URL=$(git config --get remote.origin.url)
@@ -17,25 +17,24 @@ export GITHUB_URL=$(echo $GIT_URL | rev | cut -c 5- | rev)
 echo "Building App"
 npm run build
 
-# If return code returns anything else than 0, the npm build failed
-# and will exit with same rc number.
+# Displays error is npm build failes
 rc=$?
 if [[ $rc != 0 ]] ; then
     echo "Npm build failed with exit code " $rc
     exit $rc
 fi
 
-# Use information for docker-compose
+# Storing githash in text file while running
 cat > ./build/githash.txt <<_EOF_
 $GIT_COMMIT
 _EOF_
 
-# For docker-compose
+# Put githash in .env file that docker-compose uses for latest image
 cat > ./build/.env << _EOF_
 GIT_COMMIT=$GIT_COMMIT
 _EOF_
 
-# Copy Dockerfile to build
+# Copy files to build directory
 cp ./Dockerfile ./build/
 cp ./runMigrate.sh ./build/
 cp ./package.json ./build/
@@ -44,17 +43,27 @@ cp ./docker-compose.yml ./build/
 # Go to build directory
 cd build
 
+# And start building docker image 
 echo "Building docker image"
-# Building docker image 
 docker build -t arnheidur13/tictactoe:$GIT_COMMIT .
-#docker build -t arnheidur13/tictactoe .
 
-
+# Display error message if build failed
 rc=$?
 if [[ $rc != 0 ]] ; then
    echo "Docker build failed" $rc
    exit $rc
 	fi
 
+# Push image to Docker Hub
 sudo docker push arnheidur13/tictactoe:$GIT_COMMIT
+
+# Displays this error message if push failed
+rc=$?
+if [[ $rc != 0 ]] ; then
+    echo "Docker push failed " $rc
+    exit $rc
+fi
+
+# After "Done" -> cd build -> docker-compose up (for some reason)
+
 echo "Done"
