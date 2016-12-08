@@ -2,12 +2,11 @@ version: '2'
 services:
   server:
     environment:
+      - 'NODE_ENV=production'
       - 'POSTGRES_HOST=postgres'
       - 'POSTGRES_PORT=5432'
-    image: 'arnheidur/tictactoe'
-    build:
-      context: '.'
-      dockerfile: 'Dockerfile'
+      - 'PORT=3000'
+    image: 'arnheidur/tictactoe:${GIT_COMMIT}'
     ports:
       - '3000:3000'
     depends_on:
