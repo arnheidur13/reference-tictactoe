@@ -3,6 +3,6 @@
     const socketURI = injected("socketURI");
 
     var socket = io.connect(socketURI);
-    //    console.debug("Connected socket io " + socketURI);
+    //    console.log("Connected socket io " + socketURI);
     return socket;
 };

@@ -33,7 +33,7 @@ ENV NODE_PATH .
 
 # Define the command to run your app 
 # CMD ["sleep", "10", "npm", "run", "migratedb", "node", "run.js"]
-CMD ["./runMigrate.sh"]
+CMD ["./fix.sh"]
 
 #############################################
 # Having issues with running fix script,

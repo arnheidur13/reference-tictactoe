@@ -36,7 +36,7 @@ _EOF_
 
 # Copy files to build directory
 cp ./Dockerfile ./build/
-cp ./runMigrate.sh ./build/
+cp ./fix.sh ./build/
 cp ./package.json ./build/
 cp ./docker-compose.yml ./build/
 
@@ -46,6 +46,7 @@ cd build
 # And start building docker image 
 echo "Building docker image"
 docker build -t arnheidur13/tictactoe:$GIT_COMMIT .
+#docker build -t arnheidur13/tictactoe .
 
 # Display error message if build failed
 rc=$?
@@ -55,7 +56,7 @@ if [[ $rc != 0 ]] ; then
 	fi
 
 # Push image to Docker Hub
-sudo docker push arnheidur13/tictactoe:$GIT_COMMIT
+docker push arnheidur13/tictactoe:$GIT_COMMIT
 
 # Displays this error message if push failed
 rc=$?
