@@ -9,7 +9,6 @@ module.exports=function(injected){
             };
             messageRouter.on(routingKey, (messageObj)=>{
                 if(conditionFn(messageObj)){
-                    console.log("Dispatching message over socket.io: " + socketVerb + " message: ", messageObj );
                     socketIo.emit(socketVerb, messageObj);
                 }
             })

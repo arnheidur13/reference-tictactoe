@@ -7,7 +7,8 @@ module.exports=function(injected){
         startHandling(){
             commandRouter.on('chatCommand', function(commandMessage){
 
-                console.log("Got chat command", commandMessage);
+                //console.log("Got chat command", commandMessage);
+
                 eventRouter.routeMessage({
                     eventId:generateUUID(),
                     type:'chatMessageReceived',
