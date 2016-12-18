@@ -44,17 +44,17 @@ Did you create a data migration.
 
 Do you have the following Jobs and what happens in each Job:
 
-* Commit Stage
+* Commit Stage - Keyrir buildDocker scriptuna, ef build-ið heppnast þá triggerar hann Deploy stage. 
 
 * Acceptance Stage
 
 * Capacity Stage
 
-* Other
+* Deply Stage - Hann keyrir scriptu sem afritar .env og docker-compose yfir í AWS vélina og keyrir docker-compose up þar inni. Þá er hægt að fara á AWS slóðina og spila leikinn. 
 
 ## Did you use any of the following features in Jenkins?
 
-* Schedule or commit hooks: GitHub webhook
+* Schedule or commit hooks: GitHub webhook, þannig að ég hvert skipti sem ég pusha á Github, þá sækir Jenkins allar breytingar og buildar. 
 
 * Pipeline
 
