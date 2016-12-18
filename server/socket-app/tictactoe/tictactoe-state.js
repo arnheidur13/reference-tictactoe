@@ -8,7 +8,7 @@ module.exports = function (injected) {
 
         function processEvent(event) {
             if(event.type==="GameJoined"){
-                gameFull=true;
+                gamefull=true;
             }
         }
 
@@ -16,7 +16,7 @@ module.exports = function (injected) {
             _.each(history, processEvent);
         }
 
-        function gameFull() {
+        function gameFull(event) {
             return gamefull;
         }
 

@@ -4,7 +4,7 @@
 
 You turn in the url to your Git repository. You must create a file named self-assessment.md in the root folder of the project and answer the following self assessment questions (copy md format below and use as a base and keep the structure). You need to give hap2000 access to the repository, make sure that hap2000 has commit/push access.
 
-1. [Jenkins URL](http://82.221.49.117:8080) and username and password.
+1. [Jenkins URL](http://82.221.49.117:8080) 
 
 2. [Game URL (AWS)](http://ec2-35-162-181-184.us-west-2.compute.amazonaws.com/)
 

@@ -3,9 +3,7 @@ var _ = require('lodash');
 
 var TictactoeState = require('./tictactoe-state')(inject({}));
 
-var tictactoe = require('./tictactoe-handler')(inject({
-    TictactoeState
-}));
+var tictactoe = require('./tictactoe-handler')(inject({TictactoeState}));
 
 var createEvent = {
     type: "GameCreated",
@@ -90,9 +88,7 @@ describe('join game command', function () {
         });
     });
 
-
     it('should emit game joined event...', function () {
-
         given = [{
             type: "GameCreated",
             user: {
@@ -100,16 +96,17 @@ describe('join game command', function () {
             },
             name: "TheFirstGame",
             timeStamp: "2014-12-02T11:29:29"
-        }];
+        }
+        ];
         when =
-        {
+            {
             type: "JoinGame",
             user: {
                 userName: "Gummi"
             },
             name: "TheFirstGame",
             timeStamp: "2014-12-02T11:29:29"
-        };
+            };
         then = [
             {
                 type: "GameJoined",
@@ -125,8 +122,7 @@ describe('join game command', function () {
     });
 
     it('should emit FullGameJoinAttempted event when game full..implement this', function () {
-        given = [
-        {
+        given = [{
             type: "GameCreated",
             user: {
                 userName: "TheGuy"
@@ -142,8 +138,7 @@ describe('join game command', function () {
             name: "TheFirstGame",
             timeStamp: "2014-12-02T11:29:29",
             side:'O'
-            }
-        ];
+        }];
         when =
         {
             type: "JoinGame",

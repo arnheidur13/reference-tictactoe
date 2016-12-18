@@ -23,7 +23,7 @@ module.exports = function(injected){
                     },
                     "JoinGame": function (cmd) {
                         if(gameState.gameFull()){
-                            eventHandler( [{
+                            eventHandler([{
                                 gameId: cmd.gameId,
                                 type: "FullGameJoinAttempted",
                                 user: cmd.user,
