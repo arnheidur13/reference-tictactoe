@@ -8,7 +8,7 @@ services:
       - 'PORT=3000'
     image: 'arnheidur13/tictactoe:${GIT_COMMIT}'    
     ports:
-      - '80:3000'
+      - '3000:3000'
     depends_on:
       - 'postgres' # postgres needs to be up and running
     links:

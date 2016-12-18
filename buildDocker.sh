@@ -42,7 +42,7 @@ _EOF_
 
 # Copy files to build directory
 cp ./Dockerfile ./build/
-cp ./fix.sh ./build/
+cp ./runserver.sh ./build/
 cp ./package.json ./build/
 cp ./docker-compose.yml ./build/
 
