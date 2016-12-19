@@ -43,6 +43,14 @@ module.exports = function(injected){
                         }]);
                     },
                     "PlaceMove": function(cmd){
+                        eventHandler([{
+                            gameId:cmd.gameId,
+                            type: "MovePlaced",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp,
+                            side: cmd.side
+                        }]);
 
                         // Check here for conditions which prevent command from altering state
 

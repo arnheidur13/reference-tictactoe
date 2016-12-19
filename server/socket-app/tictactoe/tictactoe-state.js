@@ -10,6 +10,10 @@ module.exports = function (injected) {
             if(event.type==="GameJoined"){
                 gamefull=true;
             }
+
+            if(event.type==="MovePlaced") {
+                playersTurn(event);
+            }
         }
 
         function processEvents(history) {
@@ -18,6 +22,13 @@ module.exports = function (injected) {
 
         function gameFull(event) {
             return gamefull;
+        }
+
+        function playersTurn(event) {
+            if(event.side==='X'){
+                event.side==='O',
+                return true;
+            }
         }
 
         processEvents(history);

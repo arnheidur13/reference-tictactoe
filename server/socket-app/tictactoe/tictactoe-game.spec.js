@@ -121,7 +121,7 @@ describe('join game command', function () {
 
     });
 
-    it('should emit FullGameJoinAttempted event when game full..implement this', function () {
+    it('should emit FullGameJoinAttempted event when game full', function () {
         given = [{
             type: "GameCreated",
             user: {
@@ -160,3 +160,73 @@ describe('join game command', function () {
         ];
     });
 });
+
+describe('place move command', function() {
+
+
+    var given, when, then;
+
+    beforeEach(function(){
+        given=undefined;
+        when=undefined;
+        then=undefined;
+    });
+
+    afterEach(function () {
+        tictactoe(given).executeCommand(when, function(actualEvents){
+            should(JSON.stringify(actualEvents)).be.exactly(JSON.stringify(then));
+        });
+    });
+
+
+    it('should emit MovePlaced on first game move', function(){
+        given = [{
+            type: "GameCreated",
+            user: {
+                userName: "TheGuy"
+            },
+            name: "TheFirstGame",
+            timeStamp: "2014-12-02T11:29:29"
+        },
+        {
+            type: "GameJoined",
+            user: {
+                userName: "Gummi"
+            },
+            name: "TheFirstGame",
+            timeStamp: "2014-12-02T11:29:29",
+            side:'O'
+        }];
+        when =
+        {
+            type: "PlaceMove",
+            user: {
+                userName: "TheGuy"
+            },
+            name: "TheFirstGame",
+            timeStamp: "2014-12-02T11:29:29",
+            side: 'X'
+        };
+        then = [{
+            type: "MovePlaced",
+            user: {
+                userName: "TheGuy"
+            },
+            name: "TheFirstGame",
+            timeStamp: "2014-12-02T11:29:29",
+            side: 'X'
+        }];
+    })
+
+});
+
+    //it('should emit IllegalMove when square is already occupied', function(){}
+
+    //it('should emit NotYourMove if attempting to make move out of turn', function(){}
+
+    //it('should emit game won on', function(){}
+
+    //it('should not emit game draw if won on last move', function(){}
+
+    //it('should emit game draw when neither wins', function(){}
+
