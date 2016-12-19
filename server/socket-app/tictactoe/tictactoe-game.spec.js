@@ -161,7 +161,7 @@ describe('join game command', function () {
     });
 });
 
-describe('place move command', function() {
+/*describe('place move command', function() {
 
 
     var given, when, then;
@@ -218,7 +218,7 @@ describe('place move command', function() {
         }];
     })
 
-});
+});*/
 
     //it('should emit IllegalMove when square is already occupied', function(){}
 

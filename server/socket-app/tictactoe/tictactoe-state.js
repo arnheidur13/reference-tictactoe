@@ -11,9 +11,9 @@ module.exports = function (injected) {
                 gamefull=true;
             }
 
-            if(event.type==="MovePlaced") {
+            /*if(event.type==="MovePlaced") {
                 playersTurn(event);
-            }
+            }*/
         }
 
         function processEvents(history) {
@@ -24,12 +24,12 @@ module.exports = function (injected) {
             return gamefull;
         }
 
-        function playersTurn(event) {
+        /*function playersTurn(event) {
             if(event.side==='X'){
                 event.side==='O',
                 return true;
             }
-        }
+        }*/
 
         processEvents(history);
 
